@@ -74,8 +74,10 @@
  */
 import express from 'express';
 import returnResultSet from '../utils/db.js';
+import authenticate from '../utils/authenticate.js';
 
 const company = express.Router();
+company.use(authenticate);
 
 company.get('/', async (req, res) => {
 	try {
