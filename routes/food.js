@@ -59,9 +59,10 @@
  */
 import express from 'express';
 import returnResultSet from '../utils/db.js';
+import authenticate from '../utils/authenticate.js';
 
 const food = express.Router();
-
+food.use(authenticate);
 food.get('/', async (req, res) => {
 	try{
 		res.json(await returnResultSet("SELECT * FROM `foodtype`"));
